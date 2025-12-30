@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>HS SPORTS</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #f5f5f5;
+        }
+
+        header {
+            background-color: #000;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .search-box {
+            margin: 20px;
+            text-align: center;
+        }
+
+        .search-box input {
+            width: 60%;
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        .produtos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .produto {
+            background-color: white;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .produto h3 {
+            margin: 10px 0;
+        }
+
+        .produto button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .produto button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>HS SPORTS</h1>
+    <p>Sua loja esportiva online</p>
+</header>
+
+<div class="search-box">
+    <input type="text" id="searchInput" placeholder="🔍 Pesquisar produto..." onkeyup="pesquisar()">
+</div>
+
+<div class="produtos" id="listaProdutos">
+
+    <div class="produto">
+        <h3>Chuteira de campo</h3>
+        <p>Ideal para grama</p>
+        <button onclick="comprar('https://shopee.com.br/2025-Novo-Estilo-Botas-De-Futebol-Airzoom-Travesseiro-De-Ar-Dwaterproof-%C3%81gua-FG-T%C3%AAnis-De-Treinamento35-45-i.1408151987.28933141054?extraParams=%7B%22display_model_id%22%3A149127963987%2C%22model_selection_logic%22%3A3%7D&sp_atk=ee8f85da-a1e8-4fb2-ba30-22cf98744d73&xptdk=ee8f85da-a1e8-4fb2-ba30-22cf98744d73')">Comprar</button>
+    </div>
+
+    <div class="produto">
+        <h3>Camisa de Time</h3>
+        <p>Confortável e estilosa</p>
+        <button onclick="comprar('https://shopee.com.br/Camisa-Adidas-Flamengo-I-2025-Jogador-i.1337527569.22298188832?extraParams=%7B%22display_model_id%22%3A199170802277%2C%22model_selection_logic%22%3A3%7D&sp_atk=ec64f956-0dfb-4b59-be75-a2e0eeb60b9d&xptdk=ec64f956-0dfb-4b59-be75-a2e0eeb60b9d')">Comprar</button>
+    </div>
+
+    <div class="produto">
+        <h3>Mochila Esportiva</h3>
+        <p>Perfeita para levar para os jogos</p>
+        <button onclick="comprar('https://shopee.com.br/Mochila-Esportiva-Pequena-Resistente-Unissex-Moderna-i.375584702.23093151527?extraParams=%7B%22display_model_id%22%3A209603930448%2C%22model_selection_logic%22%3A3%7D&sp_atk=091d4502-ebca-43e5-97b8-e8b608919ec5&xptdk=091d4502-ebca-43e5-97b8-e8b608919ec5')">Comprar</button>
+    </div>
+
+    <div class="produto">
+        <h3>Meia Anti-derrapante</h3>
+        <p>Mais segurança em campo e quadra</p>
+        <button onclick="comprar('https://shopee.com.br/12-kit-Meia-Esportiva-antiderrapante-Futebol-Algod%C3%A3o-Alta-qualidade-ventila-i.1161906393.19499378707?extraParams=%7B%22display_model_id%22%3A239409056942%2C%22model_selection_logic%22%3A3%7D&sp_atk=26bce90a-faf3-43ff-a601-f2aa6e21e216&xptdk=26bce90a-faf3-43ff-a601-f2aa6e21e216')">Comprar</button>
+    </div>
+
+    <div class="produto">
+        <h3>Camisa Dri-Fit</h3>
+        <p>Ideal para treinos</p>
+        <button onclick="comprar('https://shopee.com.br/KIT4-Camiseta-Camisa-Lisa-Dry-Fitness-Treino-Academia-Casual-Masculina-Respiravel-Confort%C3%A1vel-i.1363242215.23794249200?extraParams=%7B%22display_model_id%22%3A109724766726%2C%22model_selection_logic%22%3A3%7D&sp_atk=d4f76ec1-f93a-461f-98e9-4d730230558f&xptdk=d4f76ec1-f93a-461f-98e9-4d730230558f')">Comprar</button>
+    </div>
+
+</div>
+
+<script>
+    function pesquisar() {
+        let input = document.getElementById("searchInput").value.toLowerCase();
+        let produtos = document.getElementsByClassName("produto");
+
+        for (let i = 0; i < produtos.length; i++) {
+            let nome = produtos[i].getElementsByTagName("h3")[0].innerText.toLowerCase();
+            produtos[i].style.display = nome.includes(input) ? "block" : "none";
+        }
+    }
+
+    function comprar(link) {
+        window.location.href = link;
+    }
+</script>
+
+</body>
+</html>
